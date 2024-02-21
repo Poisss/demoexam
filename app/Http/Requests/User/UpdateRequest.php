@@ -23,7 +23,12 @@ class UpdateRequest extends WebRequest
     public function rules(): array
     {
         return [
-            
+            "name"=>["sometimes","string","max:255","alpha"],
+            "surname "=>["sometimes","string","max:255","alpha"],
+            "patronymic"=>["nullable","string","max:255","alpha"],
+            "login"=>["sometimes","string","max:255","unique:users,login"],
+            "email"=>["sometimes","string","max:255","email","unique:users,email"],
+            "password"=>["sometimes","string","min:5","max:255"],
         ];
     }
 }

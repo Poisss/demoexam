@@ -13,7 +13,7 @@ class CategoryController extends Controller
     public function index(AdminRequest $request)
     {
         $category=Category::all();
-        return view('category.categories')->with($category);
+        return view('category.categories')->with('data',$category);
     }
 
     public function create(AdminRequest $request)
@@ -29,7 +29,7 @@ class CategoryController extends Controller
 
     public function edit(AdminRequest $request,Category $category)
     {
-        return view('category.edit')->with($category);
+        return view('category.edit')->with('data',$category);
     }
 
     public function update(UpdateRequest $request, Category $category)

@@ -13,13 +13,13 @@ class ProductController extends Controller
 {
     public function indexadmin(){
         $product=Product::all()->orderBy('id','DESC');
-        return view('admin.product.products')->with($product);
+        return view('admin.product.products')->with('data',$product);
     }
 
     public function index()
     {
         $product=Product::all()->where('qty','!=',0)->orderBy('id','DESC');
-        return view('product.products')->with($product);
+        return view('product.products')->with('data',$product);
     }
 
     public function create(AdminRequest $request)
@@ -36,12 +36,12 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
-        return view('product.show')->with($product);
+        return view('product.show')->with('data',$product);
     }
 
     public function edit(AdminRequest $request,Product $product)
     {
-        return view('product.edit')->with($product);
+        return view('product.edit')->with('data',$product);
     }
 
     public function update(UpdateRequest $request, Product $product)

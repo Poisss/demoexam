@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         $user=User::all();
-        return view('user.users')->with($user);
+        return view('user.users')->with('data',$user);
     }
 
     public function create()
@@ -32,12 +32,12 @@ class UserController extends Controller
 
     public function show(User $user)
     {
-        return view('user.show')->with($user);
+        return view('user.show')->with('data',$user);
     }
 
     public function edit(AdminRequest $request,User $user)
     {
-        return view('user.edit')->with($user);
+        return view('user.edit')->with('data',$user);
     }
 
     public function update(UpdateRequest $request, User $user)
